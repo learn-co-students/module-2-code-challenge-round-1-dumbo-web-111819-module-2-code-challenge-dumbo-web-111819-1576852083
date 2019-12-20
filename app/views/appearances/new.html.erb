@@ -1,0 +1,8 @@
+<h1> Apperance</h1>
+
+<%= form_for :@appearance do |f|%>
+    <%= f.number_field :id %>
+    <%= f.collection_select :guest_id, Guest.all, :id, :name %>
+    <%= f.collection_select :episode_id, Episode.all, :id, :number %>
+    <%= f.submit%>
+<%end%>
