@@ -1,0 +1,7 @@
+<h1 style="color:Violet;"><%= "Episode #{@episode.number} - #{@episode.date.strftime("%B %d, %Y")}"%></h1>
+<h2 style="color:DodgerBlue;">Guests</h2>
+<ul>
+    <% @epguests.each do |epguest| %>
+        <li><%= epguest.name %></li>
+    <% end %>
+<ul>
