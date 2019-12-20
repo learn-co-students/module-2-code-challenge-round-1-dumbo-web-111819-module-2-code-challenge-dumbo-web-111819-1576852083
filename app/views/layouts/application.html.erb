@@ -8,7 +8,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body> 
+    <%=link_to "Episodes", episodes_path %> ||
+    <%=link_to "Guests", guests_path %> ||
+    <%=link_to "Add an appearance", new_appearance_path %>
+
+
+    
     <%= yield %>
   </body>
 </html>
