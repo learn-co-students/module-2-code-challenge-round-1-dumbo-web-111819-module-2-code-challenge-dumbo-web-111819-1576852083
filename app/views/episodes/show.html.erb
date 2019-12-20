@@ -1,0 +1,18 @@
+<h1>Episode # <%= @episode.number %></h1>
+<p>Aired on: <%= @episode.date %></p>
+<h3>Featuring:</h3>
+<% if @episode.guests.count >= 1 %>
+  <% @episode.guests.each do |g| %>
+  <h4><%= link_to g.name, guest_path(g) %></h4>
+  <p><%= g.occupation %></p><br>
+  <p>Whoops i just realized at the end that the guest's rating on this episode should be here. I would do this by iterating through the appearances not the guests.</p>
+  <% end %>
+<% else %>
+  <p>This episode doesn't have any guests yet!</p>
+  <p>If we don't have any guests Steven will just do another hour and a half of LoTR trivia Q&A.</p>
+<% end %>
+
+<%= button_to 'Book a New Guest for This Episode', new_appearance_path, method: :get %><br>
+
+<%= button_to 'Back to All Episodes', episodes_path, method: :get %>
+

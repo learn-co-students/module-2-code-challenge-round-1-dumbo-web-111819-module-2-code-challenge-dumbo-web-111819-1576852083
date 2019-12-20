@@ -2,6 +2,29 @@
 
 <ul>
   <% @episodes.each do |episode| %>
-    <li><%= "Episode #{episode.number} - #{episode.date.strftime("%B %d, %Y")}"%></li>
+    <li><%=link_to ( "Episode #{episode.number} - #{episode.date.strftime("%B %d, %Y")}" ), episode_path(episode) %>
+    <% if episode.guests.count == 0 %>
+    !  
+    <% end %>
+    <% if episode.guests.count == 1 %>
+    *  
+    <% end %>
+    <% if episode.guests.count > 3 %>
+    **  
+    <% end %></li>
   <% end %>
 </ul>
+
+
+
+<% if @episodes.any? { |e| e.guests.count == 0 } %>
+<p>! There are no guests booked for this show yet! <%= link_to 'Book a Guest Now', new_appearance_path %></p>
+<% end %>
+
+<% if @episodes.any? { |e| e.guests.count == 1 } %>
+<p>* There is only one guest booked for this show. <%= link_to 'Book a Guest Now', new_appearance_path %></p>
+<% end %>
+
+<% if @episodes.any? { |e| e.guests.count == 3 } %>
+<p>! There are more than 3 guests booked for this episode. We're gonna need a bigger couch.</p>
+<% end %>

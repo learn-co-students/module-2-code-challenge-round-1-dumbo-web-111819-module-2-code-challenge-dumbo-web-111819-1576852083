@@ -2,6 +2,13 @@
 
 <ul>
   <% @guests.each do |guest| %>
-    <li><%= guest.name %></li>
+    <li><%= link_to guest.name, guest_path(guest) %>
+    <% if guest.episodes.count == 0 %>
+    *  
+    <% end %></li>
   <% end %>
 </ul>
+
+<% if @guests.any? { |g| g.episodes.count == 0 } %>
+<p>* This guest has not appeared on any episodes yet. <%= link_to 'Book a new Appearance', new_appearance_path %></p>
+<% end %>

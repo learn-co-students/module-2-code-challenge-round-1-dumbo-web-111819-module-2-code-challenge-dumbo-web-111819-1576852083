@@ -1,0 +1,15 @@
+<h1><%= @guest.name %></h1>
+<p><%= @guest.occupation %></p>
+<h3>Featured On:</h3>
+<% if @guest.episodes != [] %>
+  <% @guest.episodes.each do |e| %>
+    <h4>Episode # <%= link_to e.number, episode_path(e) %></h4>
+    <p>Aired on: <%= e.date %></p><br>
+  <% end %>
+<% else %>
+  <p>This guest has not appeared on any episodes yet.</p>
+<% end %>
+
+<%= button_to "Book #{@guest.name}", new_appearance_path, method: :get %><br>
+
+<%= button_to 'Back to All Guests', guests_path, method: :get %>

@@ -1,0 +1,19 @@
+<%= form_for @appearance do |f| %>
+
+<%= f.label 'Guest' %><br>
+<%= collection_select(:appearance, :guest_id, Guest.all, :id, :name, prompt: true) %><br>
+
+<%= f.label 'Episode' %><br>
+<%= collection_select(:appearance, :episode_id, Episode.all, :id, :number, prompt: true) %><br>
+
+<%= f.label 'Rating' %><br>
+<%= f.number_field :rating %><br>
+
+<%= f.submit 'Submit Appearance' %>
+<% end %>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p><%= error %></p>
+  <% end%>
+<% end %>
