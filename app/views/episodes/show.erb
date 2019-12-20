@@ -1,0 +1,10 @@
+<h1>Episode</h1>
+<h2><%= @episode.date %></h2>
+<h3><%= @episode.number %></h3>
+
+
+
+<% @episodes.select do |episode| %>
+<%= episode.appearance.guests %>
+
+  <% end %>
