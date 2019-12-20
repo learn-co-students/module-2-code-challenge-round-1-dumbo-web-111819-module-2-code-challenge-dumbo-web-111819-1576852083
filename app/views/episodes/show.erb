@@ -1,0 +1,15 @@
+<h1>Episode-<%=@episode.number%></h1>
+<hr>
+<h3>Guests:</h3>
+<% @episode.guests.each do |guest|%>
+    <li><%= link_to guest.name, guest%></li>
+<%end%>
+
+<%if flash[:notice]%>
+    <%=flash[:notice]%>
+<%end%>
+<hr>
+<%= button_to 'Add New Guest', new_appearance_path, method: :get%>
+<br>
+
+<%= button_to 'Back to Episodes', episodes_path, method: :get%>

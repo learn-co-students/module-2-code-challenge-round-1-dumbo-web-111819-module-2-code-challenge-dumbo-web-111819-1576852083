@@ -1,0 +1,6 @@
+<h1><%=@guest.name%></h1>
+<h3>Occupation: <%=@guest.occupation%></h3>
+
+<%= button_to 'Back to Guests', guests_path, method: :get%>
+<br>
+<%= button_to 'Add New Appearance', new_appearance_path, method: :get%>

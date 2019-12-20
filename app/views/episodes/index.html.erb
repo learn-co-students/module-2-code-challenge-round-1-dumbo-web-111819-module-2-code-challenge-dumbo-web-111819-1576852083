@@ -1,7 +1,9 @@
 <h1>All Episodes</h1>
+<%= button_to 'Look at All Guests', guests_path, method: :get%>
 
 <ul>
   <% @episodes.each do |episode| %>
-    <li><%= "Episode #{episode.number} - #{episode.date.strftime("%B %d, %Y")}"%></li>
+    <li><%= link_to "Episode #{episode.number} - #{episode.date.strftime("%B %d, %Y")}", episode%></li>
   <% end %>
 </ul>
+
