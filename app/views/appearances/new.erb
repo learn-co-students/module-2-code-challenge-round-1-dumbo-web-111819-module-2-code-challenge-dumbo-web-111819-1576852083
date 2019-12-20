@@ -1,0 +1,22 @@
+<% if @errors %>
+<% @errors.each do |e| %>
+<li style = 'color:red; font-size:150%'> <%= e %> </li>
+<br>
+<% end %>
+<% end %>
+
+<h1 style='font-size:120%'> New Appearance</h1>
+
+<%= form_for @appearance do |f| %>
+<br>
+<%= f.collection_select :guest_id, Guest.all, :id, :name%>
+<br>
+<%= f.collection_select :episode_id, Episode.all, :id, :number%>
+<br>
+<%= f.label :rating, "Rating(1-5): " %>
+<%= f.number_field :rating %>
+<br>
+<%= f.submit "Create Appearance" %>
+<% end %>
+
+

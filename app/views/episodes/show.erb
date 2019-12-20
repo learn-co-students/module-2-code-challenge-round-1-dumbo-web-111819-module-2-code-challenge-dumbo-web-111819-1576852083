@@ -1,0 +1,6 @@
+<h1> Episode# <%= @episode.id %></h1>
+
+<h2>Guests on this Episode: </h2>
+<% @episode.guests.each do |guest| %>
+<li style='color:purple; font-size:120%'> <%= guest.name %></li>
+<% end %>
