@@ -1,0 +1,21 @@
+
+<%if @errors%>
+<ul>
+  <% @errors.each do |error| %>
+   <li><%= error %></li>
+   <%end%>
+   </ul>
+   <%end%>
+
+
+
+
+<%=form_for @appearance do |f| %>
+<%= f.label :rating %><br>
+<%= f.number_field :rating %><br>
+Guest: <%= f.collection_select :guest_id, Guest.all, :id, :name%><br>
+Episode: <%= f.collection_select :episode_id, Episode.all, :id, :number%><br>
+
+
+<%= f.submit %>
+<%end%>

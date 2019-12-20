@@ -1,0 +1,6 @@
+<h1>Episode's Show Page</h1>
+<% @episode.guests.each do |guest| %>
+<p>Guest Name: <%= guest.name %></p>
+<%end%>
+
+<%= button_to "Index", { :action => "index" }, :method => :get %>
